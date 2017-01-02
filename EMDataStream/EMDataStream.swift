@@ -14,11 +14,6 @@ open class EMDataStream: CustomStringConvertible {
     
     fileprivate var data: Array<UInt8>
     fileprivate var offset = 0
-    open var size: Int {
-        get {
-            return data.count
-        }
-    }
     open var position: Int {
         get {
             return offset
@@ -42,7 +37,7 @@ open class EMDataStream: CustomStringConvertible {
     
     public var description: String {
         get {
-            return data.reduce("EMDataStream: size: \(size)\ndata: ") { str, uint8 in str + "[\(uint8)]"}
+            return data.reduce("EMDataStream: limit: \(limit)\ndata: ") { str, uint8 in str + "[\(uint8)]"}
         }
     }
     

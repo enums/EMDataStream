@@ -10,6 +10,7 @@
 		5672E8A21E1A46C8004F8F9A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672E8A11E1A46C8004F8F9A /* Extension.swift */; };
 		5672E8A41E1A4700004F8F9A /* EMDataStreamReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672E8A31E1A4700004F8F9A /* EMDataStreamReadable.swift */; };
 		5672E8A81E1A4C60004F8F9A /* EMDataStreamWriteable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672E8A71E1A4C60004F8F9A /* EMDataStreamWriteable.swift */; };
+		5672E8B41E1A6629004F8F9A /* EMFileStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5672E8B31E1A6629004F8F9A /* EMFileStream.framework */; };
 		56CB33901E1A3EE5009299B8 /* EMDataStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 56CB338E1E1A3EE5009299B8 /* EMDataStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56CB33971E1A3F09009299B8 /* EMDataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB33961E1A3F09009299B8 /* EMDataStream.swift */; };
 /* End PBXBuildFile section */
@@ -18,6 +19,7 @@
 		5672E8A11E1A46C8004F8F9A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5672E8A31E1A4700004F8F9A /* EMDataStreamReadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMDataStreamReadable.swift; sourceTree = "<group>"; };
 		5672E8A71E1A4C60004F8F9A /* EMDataStreamWriteable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMDataStreamWriteable.swift; sourceTree = "<group>"; };
+		5672E8B31E1A6629004F8F9A /* EMFileStream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EMFileStream.framework; path = "../../EMFileStream/EMFileStream/build/Debug-iphoneos/EMFileStream.framework"; sourceTree = "<group>"; };
 		56CB338B1E1A3EE5009299B8 /* EMDataStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EMDataStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56CB338E1E1A3EE5009299B8 /* EMDataStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMDataStream.h; sourceTree = "<group>"; };
 		56CB338F1E1A3EE5009299B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5672E8B41E1A6629004F8F9A /* EMFileStream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +71,7 @@
 		56CB33BF1E1A4263009299B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5672E8B31E1A6629004F8F9A /* EMFileStream.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

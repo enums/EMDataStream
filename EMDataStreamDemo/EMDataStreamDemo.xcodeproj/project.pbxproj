@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5672E8A01E1A4403004F8F9A /* EMDataStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5672E89F1E1A4403004F8F9A /* EMDataStream.framework */; };
 		5672E8AA1E1A4CBD004F8F9A /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5672E8A91E1A4CBD004F8F9A /* Student.swift */; };
+		5672E8B01E1A65E0004F8F9A /* EMDataStream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5672E8AF1E1A65E0004F8F9A /* EMDataStream.framework */; };
+		5672E8B21E1A65EC004F8F9A /* EMDataStream.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5672E8AF1E1A65E0004F8F9A /* EMDataStream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		56CB33A51E1A3F3E009299B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB33A41E1A3F3E009299B8 /* AppDelegate.swift */; };
 		56CB33A71E1A3F3E009299B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56CB33A61E1A3F3E009299B8 /* ViewController.swift */; };
 		56CB33AA1E1A3F3E009299B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56CB33A81E1A3F3E009299B8 /* Main.storyboard */; };
@@ -16,9 +17,22 @@
 		56CB33AF1E1A3F3E009299B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56CB33AD1E1A3F3E009299B8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5672E8B11E1A65E3004F8F9A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5672E8B21E1A65EC004F8F9A /* EMDataStream.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5672E89F1E1A4403004F8F9A /* EMDataStream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EMDataStream.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/EMStreamDemo-bgzmkuptwzyrwgbfsrzjndfcflhl/Build/Products/Debug-iphonesimulator/EMDataStream.framework"; sourceTree = "<group>"; };
 		5672E8A91E1A4CBD004F8F9A /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Student.swift; path = EMDataStreamDemo/Student.swift; sourceTree = "<group>"; };
+		5672E8AF1E1A65E0004F8F9A /* EMDataStream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EMDataStream.framework; path = "../EMDataStream/build/Debug-iphoneos/EMDataStream.framework"; sourceTree = "<group>"; };
 		56CB33A11E1A3F3E009299B8 /* EMDataStreamDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EMDataStreamDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56CB33A41E1A3F3E009299B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56CB33A61E1A3F3E009299B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = EMDataStreamDemo/ViewController.swift; sourceTree = "<group>"; };
@@ -33,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5672E8A01E1A4403004F8F9A /* EMDataStream.framework in Frameworks */,
+				5672E8B01E1A65E0004F8F9A /* EMDataStream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,7 +88,7 @@
 		56CB33B61E1A3F56009299B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5672E89F1E1A4403004F8F9A /* EMDataStream.framework */,
+				5672E8AF1E1A65E0004F8F9A /* EMDataStream.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -89,6 +103,7 @@
 				56CB339D1E1A3F3E009299B8 /* Sources */,
 				56CB339E1E1A3F3E009299B8 /* Frameworks */,
 				56CB339F1E1A3F3E009299B8 /* Resources */,
+				5672E8B11E1A65E3004F8F9A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -279,6 +294,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JG6P34L9X8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EMDataStreamDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Enum.EMDataStreamDemo;
@@ -292,6 +311,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JG6P34L9X8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EMDataStreamDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Enum.EMDataStreamDemo;

@@ -8,7 +8,7 @@ A memory stream tool developed by Swift 3 working on iOS, macOS and Linux.
 
 # Integration
 
-EMDataStream depend on [「EMFileStream」](https://github.com/trmbhs/EMDataStream).
+EMDataStream depend on [「EMFileStream」](https://github.com/trmbhs/EMFileStream).
 
 Clone EMFileStream and this repo and copy the framework to your project.
 

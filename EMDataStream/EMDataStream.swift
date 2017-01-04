@@ -12,7 +12,7 @@ import EMFileStream
 
 open class EMDataStream: CustomStringConvertible {
     
-    fileprivate var data: Array<UInt8>
+    fileprivate var bytes: Array<UInt8>
     fileprivate var offset = 0
     open var position: Int {
         get {
@@ -21,14 +21,14 @@ open class EMDataStream: CustomStringConvertible {
     }
     open var limit: Int {
         get {
-            return data.count
+            return bytes.count
         }
     }
     
     open var mptr: UnsafeMutablePointer<UInt8> {
         get {
             var ptr: UnsafeMutablePointer<UInt8>!
-            withUnsafeMutablePointer(to: &data[offset], { _ptr in
+            withUnsafeMutablePointer(to: &bytes[offset], { _ptr in
                 ptr = _ptr
             })
             return ptr
@@ -37,7 +37,7 @@ open class EMDataStream: CustomStringConvertible {
     
     public var description: String {
         get {
-            return data.reduce("EMDataStream: limit: \(limit)\ndata: ") { str, uint8 in str + "[\(uint8)]"}
+            return bytes.reduce("EMDataStream: limit: \(limit)\ndata: ") { str, uint8 in str + "[\(uint8)]"}
         }
     }
     
@@ -46,7 +46,7 @@ open class EMDataStream: CustomStringConvertible {
     }
     
     public init(size: Int) {
-        data = Array<UInt8>.init(repeating: 0, count: size)
+        bytes = Array<UInt8>.init(repeating: 0, count: size)
     }
     
     public init(data: Data) {
@@ -55,11 +55,15 @@ open class EMDataStream: CustomStringConvertible {
         withUnsafeMutablePointer(to: &bytes[0], { ptr in
             data.copyBytes(to: ptr, count: size)
         })
-        self.data = bytes
+        self.bytes = bytes
+    }
+    
+    public init(bytes: Array<UInt8>) {
+        self.bytes = bytes
     }
     
     open func toData() -> Data {
-        return Data.init(bytes: data)
+        return Data.init(bytes: bytes)
     }
     
     //MARK: - Standard
@@ -82,26 +86,32 @@ open class EMDataStream: CustomStringConvertible {
     
     open func write(dataPtr: UnsafeMutableRawPointer, size: Int) throws {
         var data = Array<UInt8>.init(repeating: 0, count: size)
-        withUnsafeMutablePointer(to: &data[0], { ptr in
+        _ = withUnsafeMutablePointer(to: &data[0], { ptr in
             memcpy(ptr, dataPtr, size)
         })
-        try write(data: data)
+        try write(bytes: bytes)
     }
     
-    open func write(data: Array<UInt8>) throws {
-        let dataSize = data.count
+    open func write(bytes: Array<UInt8>) throws {
+        let dataSize = bytes.count
         if position + dataSize > limit {
             if limit == -1 {
-                self.data = data
+                self.bytes = bytes
             } else {
-                self.data.replaceSubrange(position..<limit, with: data.dropLast(limit - position))
-                self.data.append(contentsOf: data.dropFirst(limit - position))
+                self.bytes.replaceSubrange(position..<limit, with: bytes.dropLast(limit - position))
+                self.bytes.append(contentsOf: bytes.dropFirst(limit - position))
             }
         } else {
             try guardSelfNotOutOfSize(needSize: dataSize)
-            self.data.replaceSubrange(position..<position + dataSize, with: data)
+            self.bytes.replaceSubrange(position..<position + dataSize, with: bytes)
         }
         offset += dataSize
+    }
+    
+    open func write(data: Data) throws {
+        var bytes = Array<UInt8>.init(repeating: 0, count: data.count)
+        data.copyBytes(to: &bytes[0], count: data.count)
+        try write(bytes: bytes)
     }
     
     //MARK: - Extension Seek
@@ -153,7 +163,7 @@ open class EMDataStream: CustomStringConvertible {
     
     open func readString(withSize size: Int) throws -> String {
         let memory = try read(size: EM_SIZE_CHAR * size)
-        return String.gen(ptr: try memory.mptr)
+        return String.gen(ptr: memory.mptr)
     }
     
     open func readObject<T: EMDataStreamReadable>() throws -> T {

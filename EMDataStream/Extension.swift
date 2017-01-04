@@ -9,6 +9,7 @@
 import Foundation
 import EMFileStream
 
+
 internal extension Int {
     internal static func gen(ptr: UnsafeMutablePointer<UInt8>) -> Int {
         var ret = 0

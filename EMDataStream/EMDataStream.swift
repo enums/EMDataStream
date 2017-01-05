@@ -85,8 +85,8 @@ open class EMDataStream: CustomStringConvertible {
     }
     
     open func write(dataPtr: UnsafeMutableRawPointer, size: Int) throws {
-        var data = Array<UInt8>.init(repeating: 0, count: size)
-        _ = withUnsafeMutablePointer(to: &data[0], { ptr in
+        var bytes = Array<UInt8>.init(repeating: 0, count: size)
+        _ = withUnsafeMutablePointer(to: &bytes[0], { ptr in
             memcpy(ptr, dataPtr, size)
         })
         try write(bytes: bytes)
